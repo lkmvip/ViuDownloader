@@ -101,7 +101,7 @@ namespace ViuDownloader
                 }
             };
 
-            Console.WriteLine($@">>> ffmpeg -y -i ""{ResourceRequestHandlerExt.m3u8Url}"" -c copy ""{outDirTextBox.Text}\\{ResourceRequestHandlerExt.FileName}.mp4""");
+            ConsoleOutput.WriteLine($@">>> ffmpeg -y -i ""{ResourceRequestHandlerExt.m3u8Url}"" -c copy ""{outDirTextBox.Text}\\{ResourceRequestHandlerExt.FileName}.mp4""");
 
             downloadThread = new Thread(new ThreadStart(() => 
             {
