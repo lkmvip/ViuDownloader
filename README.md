@@ -7,6 +7,7 @@
  Click入節目揀好集數之後，揀Download directory之後Click Download button
 
  唔洗安裝，解壓之後run ViuDownloader.exe
+ ----------------------------------------
  點用?
  
  ![1. 揀好Download路徑先](/tutorial/selectDir.png)
