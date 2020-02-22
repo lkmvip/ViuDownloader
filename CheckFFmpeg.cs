@@ -1,10 +1,7 @@
 ﻿using System;
 using System.IO;
 using System.Net;
-using System.Windows.Forms;
 using System.IO.Compression;
-using System.Text.RegularExpressions;
-using System.Threading;
 using System.Threading.Tasks;
 
 namespace ViuDownloader

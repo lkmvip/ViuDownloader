@@ -1,8 +1,5 @@
-﻿using CefSharp;
-using CefSharp.WinForms;
-using System;
+﻿using CefSharp.WinForms;
 using System.Drawing;
-using System.IO;
 using System.Windows.Forms;
 
 namespace ViuDownloader

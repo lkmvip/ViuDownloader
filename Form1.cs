@@ -11,7 +11,6 @@ namespace ViuDownloader
 {
     public partial class Form1 : Form
     {
-        public static Rectangle workingArea;
         public static Process ffmpegProcess = new Process();
         public static Thread downloadThread;
         public static bool downloading = false;
