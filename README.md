@@ -6,5 +6,5 @@
 
  點用?
  
- ![1. 揀好Download路徑先][/tutorial/selectDir.png]
- ![2. Click Download制等佢download完會顯示download successfully][/tutorial/download.png]
+ ![1. 揀好Download路徑先](/tutorial/selectDir.png)
+ ![2. Click Download制等佢download完會顯示download successfully](/tutorial/download.png)
