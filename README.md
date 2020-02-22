@@ -4,6 +4,7 @@
  本軟件開發只用於測試及學術用途，對於使用此軟件造成任何人的任何損失，本人概不負上法律責任，用家需自行承擔風險
  Click入節目揀好集數之後，揀Download directory之後Click Download button
 
+ 唔洗安裝，係release個page download release.zip 解壓之後run ViuDownloader.exe
  點用?
  
  ![1. 揀好Download路徑先](/tutorial/selectDir.png)
