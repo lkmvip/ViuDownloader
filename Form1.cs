@@ -96,10 +96,9 @@ namespace ViuDownloader
                 Replace("{EPISODE_NUM}", ResourceRequestHandlerExt.episodeNum.ToString()).
                 Replace("{EPISODE_TITLE}", ResourceRequestHandlerExt.episodeTitle);
 
-            ConsoleOutput.WriteLine($"m3u8 URL: '{m3u8Url}'");
-            ConsoleOutput.WriteLine($"Subtitle URL: '{ResourceRequestHandlerExt.subtitleUrl}'");
-            ConsoleOutput.WriteLine($"File name: '{fileName}'");
-            return;
+            ConsoleOutput.WriteLine($"m3u8 URL: '{m3u8Url}', Subtitle URL: '{ResourceRequestHandlerExt.subtitleUrl}'");
+            ConsoleOutput.WriteLine(fileName);
+
             downloading = true;
 
             // Argument: ffmpeg -y -i [url] -c copy [outputDir].[fileType]"
