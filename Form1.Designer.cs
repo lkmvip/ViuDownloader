@@ -36,6 +36,13 @@
             this.consoleOutput = new System.Windows.Forms.RichTextBox();
             this.fileDialogButton = new System.Windows.Forms.Button();
             this.folderBrowserDialog1 = new System.Windows.Forms.FolderBrowserDialog();
+            this.label1 = new System.Windows.Forms.Label();
+            this.radioFHD = new System.Windows.Forms.RadioButton();
+            this.radioHD = new System.Windows.Forms.RadioButton();
+            this.radioSD = new System.Windows.Forms.RadioButton();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.radioShitQuality = new System.Windows.Forms.RadioButton();
             this.SuspendLayout();
             // 
             // label2
@@ -53,11 +60,11 @@
             this.outDirTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.outDirTextBox.BackColor = System.Drawing.Color.White;
-            this.outDirTextBox.Location = new System.Drawing.Point(101, 16);
+            this.outDirTextBox.Location = new System.Drawing.Point(117, 13);
             this.outDirTextBox.Margin = new System.Windows.Forms.Padding(5);
             this.outDirTextBox.Name = "outDirTextBox";
             this.outDirTextBox.ReadOnly = true;
-            this.outDirTextBox.Size = new System.Drawing.Size(1197, 31);
+            this.outDirTextBox.Size = new System.Drawing.Size(1181, 31);
             this.outDirTextBox.TabIndex = 0;
             this.outDirTextBox.TabStop = false;
             // 
@@ -130,6 +137,81 @@
             this.folderBrowserDialog1.RootFolder = System.Environment.SpecialFolder.MyComputer;
             this.folderBrowserDialog1.SelectedPath = "C:\\Users\\wongy\\Videos";
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(15, 123);
+            this.label1.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(76, 25);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Quality:";
+            // 
+            // radioFHD
+            // 
+            this.radioFHD.AutoSize = true;
+            this.radioFHD.Checked = true;
+            this.radioFHD.Location = new System.Drawing.Point(101, 121);
+            this.radioFHD.Name = "radioFHD";
+            this.radioFHD.Size = new System.Drawing.Size(84, 29);
+            this.radioFHD.TabIndex = 0;
+            this.radioFHD.TabStop = true;
+            this.radioFHD.Text = "1080p";
+            this.radioFHD.UseVisualStyleBackColor = true;
+            // 
+            // radioHD
+            // 
+            this.radioHD.AutoSize = true;
+            this.radioHD.Location = new System.Drawing.Point(191, 121);
+            this.radioHD.Name = "radioHD";
+            this.radioHD.Size = new System.Drawing.Size(74, 29);
+            this.radioHD.TabIndex = 0;
+            this.radioHD.Text = "720p";
+            this.radioHD.UseVisualStyleBackColor = true;
+            // 
+            // radioSD
+            // 
+            this.radioSD.AutoSize = true;
+            this.radioSD.Location = new System.Drawing.Point(271, 121);
+            this.radioSD.Name = "radioSD";
+            this.radioSD.Size = new System.Drawing.Size(74, 29);
+            this.radioSD.TabIndex = 0;
+            this.radioSD.Text = "480p";
+            this.radioSD.UseVisualStyleBackColor = true;
+            // 
+            // textBox1
+            // 
+            this.textBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.textBox1.BackColor = System.Drawing.Color.White;
+            this.textBox1.Location = new System.Drawing.Point(117, 66);
+            this.textBox1.Margin = new System.Windows.Forms.Padding(5);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(1181, 31);
+            this.textBox1.TabIndex = 0;
+            this.textBox1.TabStop = false;
+            this.textBox1.Text = "{SERIES_TITLE} 第{EPISODE_NUM}集 - {EPISODE_TITLE}";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(15, 69);
+            this.label3.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(97, 25);
+            this.label3.TabIndex = 0;
+            this.label3.Text = "FIle name:";
+            // 
+            // radioShitQuality
+            // 
+            this.radioShitQuality.AutoSize = true;
+            this.radioShitQuality.Location = new System.Drawing.Point(351, 121);
+            this.radioShitQuality.Name = "radioShitQuality";
+            this.radioShitQuality.Size = new System.Drawing.Size(74, 29);
+            this.radioShitQuality.TabIndex = 6;
+            this.radioShitQuality.Text = "280p";
+            this.radioShitQuality.UseVisualStyleBackColor = true;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(120F, 120F);
@@ -138,6 +220,13 @@
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1562, 676);
+            this.Controls.Add(this.radioShitQuality);
+            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.radioSD);
+            this.Controls.Add(this.radioHD);
+            this.Controls.Add(this.radioFHD);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.fileDialogButton);
             this.Controls.Add(this.consoleOutput);
             this.Controls.Add(this.downloadProgressBar);
@@ -168,6 +257,13 @@
         public System.Windows.Forms.RichTextBox consoleOutput;
         private System.Windows.Forms.FolderBrowserDialog folderBrowserDialog1;
         public System.Windows.Forms.Button downloadBtn;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.RadioButton radioFHD;
+        private System.Windows.Forms.RadioButton radioHD;
+        private System.Windows.Forms.RadioButton radioSD;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.RadioButton radioShitQuality;
     }
 }
 

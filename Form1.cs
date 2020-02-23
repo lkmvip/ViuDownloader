@@ -3,6 +3,7 @@ using System.Diagnostics;
 using System.Drawing;
 using System.IO;
 using System.Net;
+using System.Text.RegularExpressions;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -70,7 +71,7 @@ namespace ViuDownloader
                 return;
             }
 
-            if (ResourceRequestHandlerExt.seriesName == null)
+            if (ResourceRequestHandlerExt.seriesTitle == null)
             {
                 ConsoleOutput.WriteLine("Error finding the series name of this drama.");
                 return;
@@ -82,17 +83,30 @@ namespace ViuDownloader
                 return;
             }
 
-            ConsoleOutput.WriteLine($"m3u8 URL: '{ResourceRequestHandlerExt.m3u8Url}'");
-            ConsoleOutput.WriteLine($"Subtitle URL: '{ResourceRequestHandlerExt.subtitleUrl}'");
-            ConsoleOutput.WriteLine($"File name: '{ResourceRequestHandlerExt.FileName}'");
+            var m3u8Url = ResourceRequestHandlerExt.m3u8Url;
+            if (radioHD.Checked)
+                m3u8Url = m3u8Url.Replace("Layer4", "Layer3");
+            else if (radioSD.Checked)
+                m3u8Url = m3u8Url.Replace("Layer4", "Layer2");
+            else if (radioShitQuality.Checked)
+                m3u8Url = m3u8Url.Replace("Layer4", "Layer1");
 
+            var fileName = textBox1.Text.
+                Replace("{SERIES_TITLE}", ResourceRequestHandlerExt.seriesTitle).
+                Replace("{EPISODE_NUM}", ResourceRequestHandlerExt.episodeNum.ToString()).
+                Replace("{EPISODE_TITLE}", ResourceRequestHandlerExt.episodeTitle);
+
+            ConsoleOutput.WriteLine($"m3u8 URL: '{m3u8Url}'");
+            ConsoleOutput.WriteLine($"Subtitle URL: '{ResourceRequestHandlerExt.subtitleUrl}'");
+            ConsoleOutput.WriteLine($"File name: '{fileName}'");
+            return;
             downloading = true;
 
             // Argument: ffmpeg -y -i [url] -c copy [outputDir].[fileType]"
             // -y skip prompt to overwrite any existence
             ffmpegProcess = new Process
             {
-                StartInfo = new ProcessStartInfo("ffmpeg", $@"-y -i ""{ResourceRequestHandlerExt.m3u8Url}"" -c copy ""{outDirTextBox.Text}\\{ResourceRequestHandlerExt.FileName}.mp4""")
+                StartInfo = new ProcessStartInfo("ffmpeg", $@"-y -i ""{m3u8Url}"" -c copy ""{outDirTextBox.Text}\\{fileName}.mp4""")
                 {
                     RedirectStandardOutput = true,
                     RedirectStandardError = true,
@@ -101,7 +115,7 @@ namespace ViuDownloader
                 }
             };
 
-            ConsoleOutput.WriteLine($@">>> ffmpeg -y -i ""{ResourceRequestHandlerExt.m3u8Url}"" -c copy ""{outDirTextBox.Text}\\{ResourceRequestHandlerExt.FileName}.mp4""");
+            ConsoleOutput.WriteLine($@">>> ffmpeg -y -i ""{m3u8Url}"" -c copy ""{outDirTextBox.Text}\\{fileName}.mp4""");
 
             downloadThread = new Thread(new ThreadStart(() => 
             {
@@ -112,7 +126,7 @@ namespace ViuDownloader
                 downloadProgressBar.BeginInvoke(new Action(() => downloadProgressBar.Value = downloadProgressBar.Maximum));
                 consoleOutput.BeginInvoke(new Action(() => ConsoleOutput.WriteLine($"ffmpeg.exe exited with ({ffmpegProcess.ExitCode})")));
                 if(ffmpegProcess.ExitCode == 0)
-                    consoleOutput.BeginInvoke(new Action(() => ConsoleOutput.WriteLine($"{ResourceRequestHandlerExt.FileName}.mp4 downloaded successfully")));
+                    consoleOutput.BeginInvoke(new Action(() => ConsoleOutput.WriteLine($"{fileName}.mp4 downloaded successfully")));
                 downloading = false;
             }));
             ffmpegProcess.OutputDataReceived += FfmpegProcess_OutputDataReceived;
@@ -123,8 +137,8 @@ namespace ViuDownloader
             {
                 using (WebClient wc = new WebClient())
                 {
-                    wc.DownloadFile(ResourceRequestHandlerExt.subtitleUrl, $"{outDirTextBox.Text}\\{ResourceRequestHandlerExt.FileName}.srt");
-                    ConsoleOutput.WriteLine($"{outDirTextBox.Text}\\{ResourceRequestHandlerExt.FileName}.srt finished downloading");
+                    wc.DownloadFile(ResourceRequestHandlerExt.subtitleUrl, $"{outDirTextBox.Text}\\{fileName}.srt");
+                    ConsoleOutput.WriteLine($"{outDirTextBox.Text}\\{fileName}.srt finished downloading");
                 }
             } 
             catch

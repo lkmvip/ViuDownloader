@@ -12,10 +12,8 @@ namespace ViuDownloader
 
     public class ResourceRequestHandlerExt : ResourceRequestHandler
     {
-        public static String m3u8Url, subtitleUrl, seriesName, episodeName;
-        public static int episode;
-
-        public static string FileName { get => episodeName == string.Empty ? $"{seriesName} 第{episode}集" : $"{seriesName} 第{episode}集 - {episodeName}"; }
+        public static String m3u8Url, subtitleUrl, seriesTitle, episodeTitle;
+        public static int episodeNum;
 
         protected override void OnResourceLoadComplete(IWebBrowser chromiumWebBrowser, IBrowser browser, IFrame frame, IRequest request, IResponse response, UrlRequestStatus status, long receivedContentLength)
         {
@@ -43,18 +41,18 @@ namespace ViuDownloader
                         }
                         begin = data.IndexOf("number") + "number\":\"".Length;
                         end = data.IndexOf('"', begin);
-                        episode = Convert.ToInt32(data.Substring(begin, end - begin));
+                        episodeNum = Convert.ToInt32(data.Substring(begin, end - begin));
                         begin = data.IndexOf(':', begin) + 2;
                         end = data.IndexOf('"', begin);
-                        episodeName = data.Substring(begin, end - begin);
-                        episodeName = rx.Replace(episodeName, match => ((char)Int32.Parse(match.Value.Substring(2), NumberStyles.HexNumber)).ToString()); ;
+                        episodeTitle = data.Substring(begin, end - begin);
+                        episodeTitle = rx.Replace(episodeTitle, match => ((char)Int32.Parse(match.Value.Substring(2), NumberStyles.HexNumber)).ToString()); ;
                         begin = data.IndexOf(@"\u7e41\u9ad4\u4e2d\u6587", begin) + @"\u7e41\u9ad4\u4e2d\u6587"",""url"":""".Length;
                         end = data.IndexOf('"', begin);
                         subtitleUrl = data.Substring(begin, end - begin).Replace("\\", "");
                         begin = data.IndexOf("name", data.IndexOf("\"series\":{\"series_id\"", begin) + "\"series\":{\"series_id\"".Length) + "name\":\"".Length;
                         end = data.IndexOf('"', begin);
-                        seriesName = data.Substring(begin, end - begin);
-                        seriesName = rx.Replace(seriesName, match => ((char)Int32.Parse(match.Value.Substring(2), NumberStyles.HexNumber)).ToString());
+                        seriesTitle = data.Substring(begin, end - begin);
+                        seriesTitle = rx.Replace(seriesTitle, match => ((char)Int32.Parse(match.Value.Substring(2), NumberStyles.HexNumber)).ToString());
                     }
                 }
             }
