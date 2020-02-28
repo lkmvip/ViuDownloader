@@ -121,4 +121,19 @@
   <data name="download_icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\assets\download_icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="ffmpeg_download_success" xml:space="preserve">
+    <value>ffmpeg.zip downloaded successfully.</value>
+  </data>
+  <data name="ffmpeg_error" xml:space="preserve">
+    <value>Error Downloading ffmpeg.zip. Please download the it manually. Save the file as 'ffmpeg.zip' into this folder.</value>
+  </data>
+  <data name="ffmpeg_not_found" xml:space="preserve">
+    <value>FFmpeg binary not found!</value>
+  </data>
+  <data name="ffmpeg_unzip_success" xml:space="preserve">
+    <value>ffmpeg.zip unzipped and deleted.</value>
+  </data>
+  <data name="title" xml:space="preserve">
+    <value>Viu</value>
+  </data>
 </root>

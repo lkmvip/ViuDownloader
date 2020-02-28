@@ -3,6 +3,7 @@ using System.IO;
 using System.Net;
 using System.IO.Compression;
 using System.Threading.Tasks;
+using ViuTVDownloader.Properties;
 
 namespace ViuDownloader
 {
@@ -41,20 +42,21 @@ namespace ViuDownloader
             var zipUrl = "https://ffmpeg.zeranoe.com/builds/win64/static/ffmpeg-latest-win64-static.zip";
             try
             {
-                ConsoleOutput.WriteLine("FFmpeg binary not found!");
+                ConsoleOutput.WriteLine(Resources.ffmpeg_not_found);
                 ConsoleOutput.WriteLine($"Downloading 'ffmpeg.zip' from '{zipUrl}'");
                 using (WebClient client = new WebClient())
                 {
-                    await client.DownloadFileTaskAsync(new Uri(zipUrl), $"ffmpeg.zip");
-                    ConsoleOutput.WriteLine($"ffmpeg.zip downloaded successfully.");
+                    await client.DownloadFileTaskAsync(new Uri(zipUrl), $"ffmpeg.zip").ConfigureAwait(true);
+                    ConsoleOutput.WriteLine(Resources.ffmpeg_download_success);
                 }
                 UnzipDownloadedFile();
-                ConsoleOutput.WriteLine($"ffmpeg.zip unzipped and deleted.");
+                ConsoleOutput.WriteLine(Resources.ffmpeg_unzip_success);
                 return true;
             }
             catch (Exception e)
             {
-                ConsoleOutput.WriteLine($"Error Downloading ffmpeg.zip. Please download the it manually. Save the file as 'ffmpeg.zip' into this folder.\n{e.Message}");
+                ConsoleOutput.WriteLine(Resources.ffmpeg_error);
+                ConsoleOutput.WriteLine(e.Message);
             }
             return false;
         }

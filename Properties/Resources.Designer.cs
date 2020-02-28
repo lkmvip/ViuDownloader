@@ -69,5 +69,50 @@ namespace ViuTVDownloader.Properties {
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ffmpeg.zip downloaded successfully..
+        /// </summary>
+        internal static string ffmpeg_download_success {
+            get {
+                return ResourceManager.GetString("ffmpeg_download_success", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Error Downloading ffmpeg.zip. Please download the it manually. Save the file as &apos;ffmpeg.zip&apos; into this folder..
+        /// </summary>
+        internal static string ffmpeg_error {
+            get {
+                return ResourceManager.GetString("ffmpeg_error", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to FFmpeg binary not found!.
+        /// </summary>
+        internal static string ffmpeg_not_found {
+            get {
+                return ResourceManager.GetString("ffmpeg_not_found", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ffmpeg.zip unzipped and deleted..
+        /// </summary>
+        internal static string ffmpeg_unzip_success {
+            get {
+                return ResourceManager.GetString("ffmpeg_unzip_success", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Viu.
+        /// </summary>
+        internal static string title {
+            get {
+                return ResourceManager.GetString("title", resourceCulture);
+            }
+        }
     }
 }

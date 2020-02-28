@@ -1,6 +1,6 @@
 ﻿namespace ViuDownloader
 {
-    partial class Form1
+    partial class MainWindow
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainWindow));
             this.label2 = new System.Windows.Forms.Label();
             this.outDirTextBox = new System.Windows.Forms.TextBox();
             this.downloadBtn = new System.Windows.Forms.Button();
@@ -212,12 +212,10 @@
             this.radioShitQuality.Text = "280p";
             this.radioShitQuality.UseVisualStyleBackColor = true;
             // 
-            // Form1
+            // MainWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(120F, 120F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
-            this.AutoSize = true;
-            this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1562, 676);
             this.Controls.Add(this.radioShitQuality);
@@ -239,7 +237,8 @@
             this.Margin = new System.Windows.Forms.Padding(6);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
-            this.Name = "Form1";
+            this.MinimumSize = new System.Drawing.Size(1280, 720);
+            this.Name = "MainWindow";
             this.ShowIcon = false;
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
             this.Text = "Viu Downloader";

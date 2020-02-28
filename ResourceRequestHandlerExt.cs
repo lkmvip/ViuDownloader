@@ -45,14 +45,14 @@ namespace ViuDownloader
                         begin = data.IndexOf(':', begin) + 2;
                         end = data.IndexOf('"', begin);
                         episodeTitle = data.Substring(begin, end - begin);
-                        episodeTitle = rx.Replace(episodeTitle, match => ((char)Int32.Parse(match.Value.Substring(2), NumberStyles.HexNumber)).ToString()); ;
+                        episodeTitle = rx.Replace(episodeTitle, match => ((char)int.Parse(match.Value.Substring(2), NumberStyles.HexNumber)).ToString()); ;
                         begin = data.IndexOf(@"\u7e41\u9ad4\u4e2d\u6587", begin) + @"\u7e41\u9ad4\u4e2d\u6587"",""url"":""".Length;
                         end = data.IndexOf('"', begin);
                         subtitleUrl = data.Substring(begin, end - begin).Replace("\\", "");
                         begin = data.IndexOf("name", data.IndexOf("\"series\":{\"series_id\"", begin) + "\"series\":{\"series_id\"".Length) + "name\":\"".Length;
                         end = data.IndexOf('"', begin);
                         seriesTitle = data.Substring(begin, end - begin);
-                        seriesTitle = rx.Replace(seriesTitle, match => ((char)Int32.Parse(match.Value.Substring(2), NumberStyles.HexNumber)).ToString());
+                        seriesTitle = rx.Replace(seriesTitle, match => ((char)int.Parse(match.Value.Substring(2), NumberStyles.HexNumber)).ToString());
                     }
                 }
             }

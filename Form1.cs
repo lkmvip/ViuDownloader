@@ -10,13 +10,13 @@ using System.Windows.Forms;
 
 namespace ViuDownloader
 {
-    public partial class Form1 : Form
+    public partial class MainWindow : Form
     {
-        public static Process ffmpegProcess = new Process();
-        public static Thread downloadThread;
-        public static bool downloading = false;
+        static Process ffmpegProcess = new Process();
+        static Thread downloadThread;
+        static bool downloading = false;
 
-        public Form1()
+        public MainWindow()
         {
             CEFInit.InitCEF();
             InitializeComponent();
@@ -37,7 +37,10 @@ namespace ViuDownloader
             if(downloading)
             {
                 downloadThread.Abort();
-                (new Process { StartInfo = new ProcessStartInfo() { FileName = "taskkill.exe", Arguments = "/im ffmpeg.exe /F", CreateNoWindow = true, UseShellExecute = false }}).Start();
+                using(var proc = new Process { StartInfo = new ProcessStartInfo() { FileName = "taskkill.exe", Arguments = "/im ffmpeg.exe /F", CreateNoWindow = true, UseShellExecute = false } })
+                {
+                    proc.Start();
+                }
                 ConsoleOutput.Clear();
                 downloading = false;
             }
@@ -48,7 +51,7 @@ namespace ViuDownloader
             {
                 downloadBtn.Enabled = false;
                 var update = new Action(async () => {
-                    var success = await CheckFFmpeg.UpdateBinary();
+                    var success = await CheckFFmpeg.UpdateBinary().ConfigureAwait(true);
                     if(success)
                         downloadBtn.Invoke(new Action(() => downloadBtn.Enabled = true));
                 });
