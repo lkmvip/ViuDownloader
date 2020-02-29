@@ -1,7 +1,7 @@
 ﻿using CefSharp.WinForms;
 using System.Drawing;
 using System.Windows.Forms;
-using ViuTVDownloader.Properties;
+using ViuDownloader.Properties;
 
 namespace ViuDownloader
 {
@@ -16,28 +16,28 @@ namespace ViuDownloader
             browser = new ChromiumWebBrowser("https://www.viu.com/")
             {
                 RequestHandler = new MyRequestHandler(),
+                Dock = DockStyle.Fill
             };
 
             loginDialog = new Form()
             {
-                FormBorderStyle = FormBorderStyle.FixedSingle,
+                FormBorderStyle = FormBorderStyle.FixedToolWindow,
                 StartPosition = FormStartPosition.WindowsDefaultLocation,
                 AutoScaleMode = AutoScaleMode.Dpi,
                 ImeMode = ImeMode.Off,
                 ClientSize = new Size(1280, 720),
-                MaximizeBox = false,
-                MinimizeBox = false,
                 ShowIcon = false,
-                Text = Resources.title
+                Text = Resources.title,
+                TopMost = true
             };
-            loginDialog.FormClosed += LoginDialog_FormClosed;
+            loginDialog.FormClosing += LoginDialog_FormClosing;
             loginDialog.Controls.Add(browser);
             loginDialog.Show();
         }
 
-        private static void LoginDialog_FormClosed(object sender, FormClosedEventArgs e)
+        private static void LoginDialog_FormClosing(object sender, FormClosingEventArgs e)
         {
-            (sender as Form).Show();
+            e.Cancel = true;
         }
     }
 }

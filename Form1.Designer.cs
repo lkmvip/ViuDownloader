@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainWindow));
             this.label2 = new System.Windows.Forms.Label();
             this.outDirTextBox = new System.Windows.Forms.TextBox();
             this.downloadBtn = new System.Windows.Forms.Button();
@@ -64,7 +63,7 @@
             this.outDirTextBox.Margin = new System.Windows.Forms.Padding(5);
             this.outDirTextBox.Name = "outDirTextBox";
             this.outDirTextBox.ReadOnly = true;
-            this.outDirTextBox.Size = new System.Drawing.Size(1181, 31);
+            this.outDirTextBox.Size = new System.Drawing.Size(899, 31);
             this.outDirTextBox.TabIndex = 0;
             this.outDirTextBox.TabStop = false;
             // 
@@ -75,11 +74,11 @@
             this.downloadBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.downloadBtn.FlatAppearance.BorderSize = 0;
             this.downloadBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.downloadBtn.Image = ((System.Drawing.Image)(resources.GetObject("downloadBtn.Image")));
-            this.downloadBtn.Location = new System.Drawing.Point(1362, 6);
+            this.downloadBtn.Image = global::ViuDownloader.Properties.Resources.download_icon;
+            this.downloadBtn.Location = new System.Drawing.Point(1080, 6);
             this.downloadBtn.Margin = new System.Windows.Forms.Padding(5);
             this.downloadBtn.Name = "downloadBtn";
-            this.downloadBtn.Size = new System.Drawing.Size(184, 151);
+            this.downloadBtn.Size = new System.Drawing.Size(186, 148);
             this.downloadBtn.TabIndex = 0;
             this.downloadBtn.TabStop = false;
             this.downloadBtn.Text = "s";
@@ -92,11 +91,11 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.downloadProgressBar.BackColor = System.Drawing.Color.White;
             this.downloadProgressBar.ForeColor = System.Drawing.Color.YellowGreen;
-            this.downloadProgressBar.Location = new System.Drawing.Point(18, 167);
+            this.downloadProgressBar.Location = new System.Drawing.Point(18, 211);
             this.downloadProgressBar.Margin = new System.Windows.Forms.Padding(5);
             this.downloadProgressBar.Maximum = 600;
             this.downloadProgressBar.Name = "downloadProgressBar";
-            this.downloadProgressBar.Size = new System.Drawing.Size(1530, 36);
+            this.downloadProgressBar.Size = new System.Drawing.Size(1248, 36);
             this.downloadProgressBar.Step = 1;
             this.downloadProgressBar.Style = System.Windows.Forms.ProgressBarStyle.Continuous;
             this.downloadProgressBar.TabIndex = 0;
@@ -109,11 +108,11 @@
             this.consoleOutput.Font = new System.Drawing.Font("Consolas", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.consoleOutput.ForeColor = System.Drawing.Color.Lime;
             this.consoleOutput.HideSelection = false;
-            this.consoleOutput.Location = new System.Drawing.Point(0, 213);
+            this.consoleOutput.Location = new System.Drawing.Point(0, 257);
             this.consoleOutput.Margin = new System.Windows.Forms.Padding(5);
             this.consoleOutput.Name = "consoleOutput";
             this.consoleOutput.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.Vertical;
-            this.consoleOutput.Size = new System.Drawing.Size(1562, 463);
+            this.consoleOutput.Size = new System.Drawing.Size(1280, 463);
             this.consoleOutput.TabIndex = 0;
             this.consoleOutput.TabStop = false;
             this.consoleOutput.Text = "";
@@ -122,7 +121,7 @@
             // 
             this.fileDialogButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.fileDialogButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.fileDialogButton.Location = new System.Drawing.Point(1308, 6);
+            this.fileDialogButton.Location = new System.Drawing.Point(1026, 6);
             this.fileDialogButton.Margin = new System.Windows.Forms.Padding(5);
             this.fileDialogButton.Name = "fileDialogButton";
             this.fileDialogButton.Size = new System.Drawing.Size(44, 44);
@@ -187,7 +186,7 @@
             this.textBox1.Location = new System.Drawing.Point(117, 66);
             this.textBox1.Margin = new System.Windows.Forms.Padding(5);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(1181, 31);
+            this.textBox1.Size = new System.Drawing.Size(899, 31);
             this.textBox1.TabIndex = 0;
             this.textBox1.TabStop = false;
             this.textBox1.Text = "{SERIES_TITLE} 第{EPISODE_NUM}集 - {EPISODE_TITLE}";
@@ -217,7 +216,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(120F, 120F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(1562, 676);
+            this.ClientSize = new System.Drawing.Size(1262, 673);
             this.Controls.Add(this.radioShitQuality);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.label3);
@@ -232,7 +231,7 @@
             this.Controls.Add(this.outDirTextBox);
             this.Controls.Add(this.label2);
             this.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.ImeMode = System.Windows.Forms.ImeMode.Off;
             this.Margin = new System.Windows.Forms.Padding(6);
             this.MaximizeBox = false;
@@ -242,6 +241,7 @@
             this.ShowIcon = false;
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
             this.Text = "Viu Downloader";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
             this.ResumeLayout(false);
             this.PerformLayout();

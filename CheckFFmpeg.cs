@@ -3,7 +3,7 @@ using System.IO;
 using System.Net;
 using System.IO.Compression;
 using System.Threading.Tasks;
-using ViuTVDownloader.Properties;
+using ViuDownloader.Properties;
 
 namespace ViuDownloader
 {
